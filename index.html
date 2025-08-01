@@ -545,30 +545,54 @@
     </section>
     
     <!-- Секция контактов -->
-    <section class="contact" id="contact">
-    <div class="container">
-        <h2>Свяжитесь с нами</h2>
-        <p>Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
-        
-        <!-- НАЧАЛО ФОРМЫ - вставьте этот код -->
-        <form action="https://formsubmit.co/katya.chuntomova@gmail.com" method="POST" id="contact-form">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://echuntomova.github.io/ohrana-trud/thanks.html">
-            <input type="hidden" name="_subject" value="Новая заявка с сайта">
-            
-            <div style="margin-bottom: 15px;">
-                <input type="text" name="Имя" placeholder="Ваше имя" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-            </div>
-            <div style="margin-bottom: 15px;">
-                <input type="tel" name="Телефон" placeholder="Ваш телефон" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-            </div>
-            <div style="margin-bottom: 15px;">
-                <input type="email" name="Email" placeholder="Ваш email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-            </div>
-            <button type="submit" class="btn">Отправить</button>
-        </form>
-        <!-- КОНЕЦ ФОРМЫ -->
-    </div>
+    <!-- Секция контактов -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Свяжитесь с нами</h2>
+    <p>Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
+    <p style="margin-top: 20px; font-size: 14px;">
+  Или напишите нам напрямую: 
+  <a href="mailto:katya.chuntomova@gmail.com">katya.chuntomova@gmail.com</a>
+</p>
+    
+    <!-- Форма с Formspree -->
+    <form action="https://formspree.io/f/movllodk" method="POST" id="contact-form">
+      <input type="hidden" name="_next" value="https://echuntomova.github.io/ohrana-trud/thanks.html">
+      <input type="hidden" name="_subject" value="Новая заявка с сайта ОхранаТрудПрофи">
+      
+      <div style="margin-bottom: 15px;">
+        <input type="text" name="Имя" placeholder="Ваше имя" required 
+               style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      </div>
+      <div style="margin-bottom: 15px;">
+        <input type="tel" name="Телефон" placeholder="Ваш телефон" required 
+               style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      </div>
+      <div style="margin-bottom: 15px;">
+        <input type="email" name="Email" placeholder="Ваш email" 
+               style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+      </div>
+      <button type="submit" class="btn">Отправить</button>
+    </form>
+
+    <!-- Резервный скрипт для гарантированного перенаправления -->
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => window.location.href = form.querySelector('[name="_next"]').value)
+        .catch(error => {
+          alert('Ошибка отправки, попробуйте ещё раз');
+          console.error(error);
+        });
+      });
+    </script>
+  </div>
 </section>
     
     <!-- Футер -->
