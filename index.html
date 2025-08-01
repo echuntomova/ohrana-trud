@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессиональные услуги по охране труда</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .phone, .email {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .phone i, .email i {
+            margin-right: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Герой секция */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Секция услуг */
+        .services {
+            padding: 60px 0;
+        }
+        
+        .service-list {
+            margin-bottom: 30px;
+        }
+        
+        .service-list li {
+            margin-bottom: 10px;
+            list-style-position: inside;
+        }
+        
+        /* Секция документов */
+        .documents {
+            padding: 60px 0;
+            background-color: var(--light-color);
+        }
+        
+        .documents-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .price-box {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .documents-box {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: var(--text-light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .checkmark {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        /* Секция преимуществ */
+        .advantages {
+            padding: 60px 0;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .advantage-card {
+            background-color: var(--text-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .advantage-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .advantage-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Мобильное меню */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                margin-left: 0;
+            }
+            
+            .contact-info {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                color: var(--text-light);
+                font-size: 24px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .documents-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">ОхранаТрудПрофи</a>
+            
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#documents">Документы</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="contact-info">
+                <a href="tel:+79991234567" class="phone">
+                    <i class="fas fa-phone"></i> +7 (999) 123-45-67
+                </a>
+                <a href="mailto:info@ohranatrudprofi.ru" class="email">
+                    <i class="fas fa-envelope"></i> info@ohranatrudprofi.ru
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Профессиональные услуги по охране труда</h1>
+                    <p>Мы обеспечиваем полное соответствие вашей организации требованиям трудового законодательства РФ.</p>
+                    
+                    <ul class="service-list">
+                        <li>Проведем аудит в области охраны труда, проверим реальное состояние документов в вашей организации</li>
+                        <li>Разработаем Положения, Приказы, Программы, Инструкции и другие документы по охране труда под ключ</li>
+                        <li>Подготовим полный пакет документов, который должен быть именно в вашей организации согласно нормам трудового законодательства</li>
+                        <li>Предоставим документы по специальной оценке условий труда, пожарной безопасности, оценке профессиональных рисков и охране труда</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn">Связаться с нами</a>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Охрана труда">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Секция документов -->
+    <section class="documents" id="documents">
+        <div class="container">
+            <h2>Полный список документов, который мы подготавливаем</h2>
+            <p>Наши специалисты по охране труда Академии ГеоТтестации подготовят для вас все необходимые документы</p>
+            
+            <div class="documents-container">
+                <div class="price-box">
+                    <h3>Полный пакет документов</h3>
+                    <div class="price">От 10 000 руб</div>
+                    <p>за полный контракт</p>
+                    <p>12-15 документов</p>
+                    <a href="#contact" class="btn">Получить расчет</a>
+                    <p style="margin-top: 15px;">Получите расчет стоимости в 3 вариантах</p>
+                </div>
+                
+                <div class="documents-box">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Охрана труда</th>
+                                <th>СОУТ</th>
+                                <th>ОПР</th>
+                                <th>Пожарная безопасность</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="checkmark">✅</span> Положения</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><span class="checkmark">✅</span> Приказы</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><span class="checkmark">✅</span> Программы</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><span class="checkmark">✅</span> Инструкции</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><span class="checkmark">✅</span> Журналы</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><span class="checkmark">✅</span> Перечни</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><span class="checkmark">✅</span> Другое</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Секция преимуществ -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <h2>Наши преимущества</h2>
+            <p>Почему стоит выбрать именно нас для организации охраны труда на вашем предприятии</p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Профессионализм</h3>
+                    <p>Все наши специалисты имеют высшее образование и сертификаты в области охраны труда</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <i class="fas fa-ruble-sign"></i>
+                    <h3>Доступные цены</h3>
+                    <p>Предлагаем оптимальное соотношение цены и качества услуг</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Оперативность</h3>
+                    <p>Подготовим полный пакет документов в кратчайшие сроки</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Гарантия</h3>
+                    <p>Гарантируем соответствие всех документов действующему законодательству</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Индивидуальный подход</h3>
+                    <p>Учитываем специфику именно вашего предприятия</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Поддержка</h3>
+                    <p>Консультации и помощь после сдачи документов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Секция контактов -->
+    <section class="contact" id="contact">
+    <div class="container">
+        <h2>Свяжитесь с нами</h2>
+        <p>Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
+        
+        <!-- НАЧАЛО ФОРМЫ - вставьте этот код -->
+        <form action="https://formsubmit.co/katya.chuntomova@gmail.com" method="POST" id="contact-form">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://echuntomova.github.io/вашрепозиторий/thanks.html">
+            <input type="hidden" name="_subject" value="Новая заявка с сайта">
+            
+            <div style="margin-bottom: 15px;">
+                <input type="text" name="Имя" placeholder="Ваше имя" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <input type="tel" name="Телефон" placeholder="Ваш телефон" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <input type="email" name="Email" placeholder="Ваш email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <textarea name="Сообщение" placeholder="Ваше сообщение" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px;"></textarea>
+            </div>
+            <button type="submit" class="btn">Отправить</button>
+        </form>
+        <!-- КОНЕЦ ФОРМЫ -->
+    </div>
+</section>
+    
+    <!-- Футер -->
+    <footer>
+        <div class="container footer-content">
+            <a href="#" class="logo">ОхранаТрудПрофи</a>
+            
+            <div class="footer-links">
+                <a href="#documents">Документы</a>
+                <a href="#advantages">Преимущества</a>
+                <a href="#contact">Контакты</a>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+            
+            <div class="contact-info">
+                <a href="tel:+79991234567" class="phone">
+                    <i class="fas fa-phone"></i> +7 (999) 123-45-67
+                </a>
+                <a href="mailto:info@ohranatrudprofi.ru" class="email">
+                    <i class="fas fa-envelope"></i> info@ohranatrudprofi.ru
+                </a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 ОхранаТрудПрофи. Все права защищены.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Мобильное меню
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('show');
+        });
+        
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Закрываем меню на мобильных устройствах после клика
+                if (window.innerWidth <= 768) {
+                    document.getElementById('nav-menu').classList.remove('show');
+                }
+            });
+        });
+        
+        // Обработка формы
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
