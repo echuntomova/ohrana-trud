@@ -1,5 +1,7 @@
 {
   "routes": [
-    { "src": "/privacy-policy.html", "dest": "/privacy-policy.html" }
+    { "src": "/privacy-policy.html", "dest": "/privacy-policy.html" },
+    { "src": "/thanks.html", "dest": "/thanks.html" }
   ]
+ 
 }
